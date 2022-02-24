@@ -1,0 +1,28 @@
+{
+	"scopeName": "fg-comment.injection",
+	"injectionSelector": "L:source",
+	"patterns": [
+		{
+			"contentName": "meta.embedded.block.fastgraph",
+			"begin": "\\s*(///)\\s*",
+			"beginCaptures": {
+				"1": {
+					"name": "comment.fastgraph"
+				}
+			},
+			"end": "\n",
+			"endCaptures": {},
+			"patterns": [{ "include": "#method-keyword" }, { "include": "#other-comment" }]
+		}
+	],
+	"repository": {
+		"method-keyword": {
+			"match": "@\\w+",
+			"name": "keyword.method"
+		},
+		"other-comment": {
+			"match": "[^@]*",
+			"name": "comment.other"
+		}
+	}
+}
